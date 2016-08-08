@@ -27,7 +27,7 @@ brew install coreutils
 sudo ln -s /usr/local/bin/gsha256sum /usr/local/bin/sha256sum
 
 # Install latest zsh.
-brew install zsh
+brew install zsh -v
 
 # Install some other useful utilities like `sponge`.
 brew install moreutils
@@ -35,101 +35,53 @@ brew install moreutils
 brew install findutils
 # Install GNU `sed`, overwriting the built-in `sed`.
 brew install gnu-sed --with-default-names
-# Install Bash 4.
-brew install bash
-brew tap homebrew/versions
-brew install bash-completion2
-# We installed the new shell, now we have to activate it
-echo "Adding the newly installed shell to the list of allowed shells"
-# Prompts for password
-sudo bash -c 'echo /usr/local/bin/bash >> /etc/shells'
-# Change to the new shell, prompts for password
-chsh -s /usr/local/bin/bash
 
 # Install `wget` with IRI support.
-brew install wget --with-iri
-
-# Install RingoJS and Narwhal.
-# Note that the order in which these are installed is important;
-# see http://git.io/brew-narwhal-ringo.
-brew install ringojs
-brew install narwhal
+brew install wget --with-iri -v
 
 # Install Python
-brew install python
-brew install python3
+brew install python -v
+brew install python3 -v
+
+# Install Golang
+brew install go -v
 
 # Install ruby-build and rbenv
-brew install ruby-build
-brew install rbenv
+brew install ruby-build -v
+brew install rbenv -v
 LINE='eval "$(rbenv init -)"'
 grep -q "$LINE" ~/.extra || echo "$LINE" >> ~/.extra
 
 # Install more recent versions of some OS X tools.
-brew install vim --override-system-vi
-brew install homebrew/dupes/grep
-brew install homebrew/dupes/openssh
-brew install homebrew/dupes/screen
+brew install vim --override-system-vi -v
+brew install homebrew/dupes/grep -v
+brew install homebrew/dupes/openssh -v
 
 # Install font tools.
-brew tap bramstein/webfonttools
-brew install sfnt2woff
-brew install sfnt2woff-zopfli
-brew install woff2
+brew tap bramstein/webfonttools -v
+brew install sfnt2woff -v
+brew install sfnt2woff-zopfli -v
+brew install woff2 -v
 
 # Install some CTF tools; see https://github.com/ctfs/write-ups.
-brew install aircrack-ng
-brew install bfg
-brew install binutils
-brew install binwalk
-brew install cifer
-brew install dex2jar
-brew install dns2tcp
-brew install fcrackzip
-brew install foremost
-brew install hashpump
-brew install hydra
-brew install john
-brew install knock
-brew install netpbm
-brew install nmap
-brew install pngcheck
-brew install socat
-brew install sqlmap
-brew install tcpflow
-brew install tcpreplay
-brew install tcptrace
-brew install ucspi-tcp # `tcpserver` etc.
-brew install homebrew/x11/xpdf
-brew install xz
+brew install aircrack-ng -v
+brew install dex2jar -v
+brew install nmap -v
 
 # Install other useful binaries.
-brew install ack
-brew install dark-mode
-#brew install exiv2
-brew install git
-brew install git-lfs
-brew install git-flow
-brew install git-extras
-brew install imagemagick --with-webp
-brew install lua
-brew install lynx
-brew install p7zip
-brew install pigz
-brew install pv
-brew install rename
-brew install rhino
-brew install speedtest_cli
-brew install ssh-copy-id
-brew install tree
-brew install webkit2png
-brew install zopfli
-brew install pkg-config libffi
-brew install pandoc
+brew install ack -v
+brew install git -v
+brew install git-lf -vs
+brew install git-flow -v
+brew install git-hubflow -v
+brew install git-extras -v
+brew install imagemagick --with-webp -v
+brew install lua -v
+brew install direnv -v
 
 # Lxml and Libxslt
-brew install libxml2
-brew install libxslt
+brew install libxml2 -v
+brew install libxslt -v
 brew link libxml2 --force
 brew link libxslt --force
 
@@ -141,7 +93,6 @@ brew tap caskroom/versions
 brew cask install --appdir="/Applications" alfred
 brew cask install --appdir="~/Applications" iterm2
 brew cask install --appdir="~/Applications" java
-brew cask install --appdir="~/Applications" xquartz
 
 # Development tool casks
 brew cask install --appdir="/Applications" atom
